@@ -3,7 +3,7 @@ syntax enable
 filetype plugin on
 
 set number
-set relativenumber
+" set relativenumber
 set list
 
 " Real programmers don't use TABs but spaces
