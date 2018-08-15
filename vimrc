@@ -14,7 +14,7 @@ Plugin 'vim-scripts/indentpython.vim'
 Plugin 'Valloric/YouCompleteMe'
 Plugin 'scrooloose/nerdtree'
 Plugin 'jistr/vim-nerdtree-tabs'
-Plugin 'Lokaltog/powerline', {'rtp': 'powerline/bindings/vim/'}
+Plugin 'powerline/powerline', {'rtp': 'powerline/bindings/vim/'}
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -30,11 +30,11 @@ let g:ycm_autoclose_preview_window_after_completion=1
 map <leader>g  :YcmCompleter GoToDefinitionElseDeclaration<CR>
 let NERDTreeIgnore=['\.pyc$', '\~$'] "ignore files in NERDTree
 " powerline config
-" set guifont=PowerlineSymbols\ for\ Powerline
 set laststatus=2
+set showtabline=2
+set noshowmode
 set t_Co=256
-" let g:Powerline_symbols = 'fancy'
-" let Powerline_symbols='compatible'
+let g:Powerline_symbols = 'fancy'
 
 syntax enable
 
