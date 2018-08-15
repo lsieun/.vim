@@ -22,6 +22,7 @@ filetype plugin indent on    " required
 
 " let mapleader = "\<Space>"
 set showcmd
+set clipboard=unnamed
 
 " Plugin variable
 let g:SimpylFold_docstring_preview=1
@@ -29,11 +30,11 @@ let g:ycm_autoclose_preview_window_after_completion=1
 map <leader>g  :YcmCompleter GoToDefinitionElseDeclaration<CR>
 let NERDTreeIgnore=['\.pyc$', '\~$'] "ignore files in NERDTree
 " powerline config
-set guifont=PowerlineSymbols\ for\ Powerline
+" set guifont=PowerlineSymbols\ for\ Powerline
 set laststatus=2
 set t_Co=256
-let g:Powerline_symbols = 'fancy'
-let Powerline_symbols='compatible'
+" let g:Powerline_symbols = 'fancy'
+" let Powerline_symbols='compatible'
 
 syntax enable
 
