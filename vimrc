@@ -15,6 +15,8 @@ Plugin 'Valloric/YouCompleteMe'
 Plugin 'scrooloose/nerdtree'
 Plugin 'jistr/vim-nerdtree-tabs'
 Plugin 'powerline/powerline', {'rtp': 'powerline/bindings/vim/'}
+Plugin 'kien/ctrlp.vim'
+Plugin 'tpope/vim-fugitive'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -37,6 +39,8 @@ set showtabline=2
 set noshowmode
 set t_Co=256
 let g:Powerline_symbols = 'fancy'
+" Search from current directory instead of project root
+let g:ctrlp_working_path_mode = 0
 
 syntax enable
 
