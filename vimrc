@@ -80,13 +80,21 @@ inoremap ;k <Esc>:update<Cr>
 inoremap ;j <C-O>:update<Cr>
 nnoremap ;j :update<CR>
 
+" Move line: Normal mode
+nnoremap <C-Down> :m .+1<CR>==
+nnoremap <C-Up> :m .-2<CR>==
+" Move line: Insert mode
+inoremap <C-Down> <ESC>:m .+1<CR>==gi
+vnoremap <C-Down> :m '>+1<CR>gv=gv
+vnoremap <C-Up> :m '<-2<CR>gv=gv
+
 "split navigations
 nnoremap <C-J> <C-W><C-J>
 nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
 
-colorscheme google
+colorscheme vividchalk
 
 " Disable stupid backup and swap file
 " they trigger too many events for file system watchers
