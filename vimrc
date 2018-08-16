@@ -51,6 +51,17 @@ augroup numbertoggle
   autocmd BufEnter,FocusGained,InsertLeave * set relativenumber
   autocmd BufLeave,FocusLost,InsertEnter   * set norelativenumber
 augroup END
+" use Ctrl+N to toggle the line number counting method
+function! g:ToggleNuMode()
+  if &relativenumber == 1
+     set number
+     set norelativenumber
+  else
+     set relativenumber
+     set nonumber
+  endif
+endfunction
+nnoremap <silent><C-N> :call g:ToggleNuMode()<cr>
 " set list
 
 " Real programmers don't use TABs but spaces
