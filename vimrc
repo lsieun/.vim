@@ -20,7 +20,7 @@ Plugin 'powerline/powerline', {'rtp': 'powerline/bindings/vim/'}
 call vundle#end()            " required
 filetype plugin indent on    " required
 
-" let mapleader = "\<Space>"
+let mapleader = "\<Space>"
 set showcmd
 set clipboard=unnamed
 
@@ -28,7 +28,9 @@ set clipboard=unnamed
 let g:SimpylFold_docstring_preview=1
 let g:ycm_autoclose_preview_window_after_completion=1
 map <leader>g  :YcmCompleter GoToDefinitionElseDeclaration<CR>
+map <F2> :NERDTreeToggle<cr>
 let NERDTreeIgnore=['\.pyc$', '\~$'] "ignore files in NERDTree
+" map <Leader>n <plug>NERDTreeTabsToggle<CR>
 " powerline config
 set laststatus=2
 set showtabline=2
@@ -56,10 +58,27 @@ set ignorecase
 set smartcase
 
 set foldenable
-set foldcolumn=5
+" set foldcolumn=5
 
 set splitbelow
 set splitright
+
+" Buffer
+nnoremap gp :bp<CR>
+nnoremap gn :bn<CR>
+nnoremap gl :ls<CR>
+nnoremap gb :ls<CR>:b
+
+" *** The Two Hand system ***
+inoremap ;a <Esc>
+inoremap ;d <Esc>:update<Cr>
+inoremap ;f <C-O>:update<Cr>
+nnoremap ;f :update<CR>
+" *** The Right Hand system ***
+inoremap ;l <Esc>
+inoremap ;k <Esc>:update<Cr>
+inoremap ;j <C-O>:update<Cr>
+nnoremap ;j :update<CR>
 
 "split navigations
 nnoremap <C-J> <C-W><C-J>
@@ -87,3 +106,4 @@ endif
 
 " abbreviations
 silent! source $VIMHOME/abbreviations.vim
+
