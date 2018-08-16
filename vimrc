@@ -41,7 +41,12 @@ let g:Powerline_symbols = 'fancy'
 syntax enable
 
 set number
-" set relativenumber
+set relativenumber
+augroup numbertoggle
+  autocmd!
+  autocmd BufEnter,FocusGained,InsertLeave * set relativenumber
+  autocmd BufLeave,FocusLost,InsertEnter   * set norelativenumber
+augroup END
 " set list
 
 " Real programmers don't use TABs but spaces
@@ -85,6 +90,8 @@ nnoremap <C-Down> :m .+1<CR>==
 nnoremap <C-Up> :m .-2<CR>==
 " Move line: Insert mode
 inoremap <C-Down> <ESC>:m .+1<CR>==gi
+inoremap <C-Up> <ESC>:m .-2<CR>==gi
+" Move line: Visual mode
 vnoremap <C-Down> :m '>+1<CR>gv=gv
 vnoremap <C-Up> :m '<-2<CR>gv=gv
 
