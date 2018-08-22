@@ -24,7 +24,7 @@ filetype plugin indent on    " required
 
 let mapleader = "\<Space>"
 set showcmd
-set clipboard=unnamed
+set clipboard=unnamedplus
 
 " Plugin variable
 let g:SimpylFold_docstring_preview=1
@@ -137,3 +137,14 @@ endif
 " abbreviations
 silent! source $VIMHOME/abbreviations.vim
 
+autocmd BufWritePre,FileWritePre *.py mark s|call LastMod()|'s
+fun LastMod()
+    " if there are more than 20 lines, set max to 20,
+    " otherwise, scan entire file
+    if line("$") > 20
+        let lastModifiedline = 20
+    else
+        let lastModifiedline = line("$")
+    endif
+    exe  "1," . lastModifiedline . "g/Last modified: /s/Last modified:.*/Last modified: " . strftime("%Y-%m-%d %T")
+endfun
