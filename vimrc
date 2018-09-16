@@ -17,6 +17,8 @@ Plugin 'jistr/vim-nerdtree-tabs'
 Plugin 'powerline/powerline', {'rtp': 'powerline/bindings/vim/'}
 Plugin 'kien/ctrlp.vim'
 Plugin 'tpope/vim-fugitive'
+Plugin 'duggiefresh/vim-easydir'
+Plugin 'file:///home/liusen/.vim/bundle/eclim/eclim'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -41,6 +43,7 @@ set t_Co=256
 let g:Powerline_symbols = 'fancy'
 " Search from current directory instead of project root
 let g:ctrlp_working_path_mode = 0
+let g:EclimCompletionMethod = 'omnifunc'
 
 syntax enable
 
@@ -116,7 +119,8 @@ nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
 
-colorscheme vividchalk
+" colorscheme vividchalk
+colorscheme ron
 
 " Disable stupid backup and swap file
 " they trigger too many events for file system watchers
@@ -148,3 +152,5 @@ fun LastMod()
     endif
     exe  "1," . lastModifiedline . "g/Last modified: /s/Last modified:.*/Last modified: " . strftime("%Y-%m-%d %T")
 endfun
+
+nnoremap <F5> <Esc>:update<CR>:!clear;echo "$ python %";printf "\n";python %<CR>

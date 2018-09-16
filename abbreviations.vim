@@ -1,4 +1,4 @@
-iabbrev if_main if __name__ == '__main__':
+iabbrev if_main if __name__ == "__main__":<esc>
 iabbrev def_init def __init__(self):
 iabbrev env_python #!/usr/bin/env python3
 iabbrev python_header #!/usr/bin/env python3<cr># -*- coding: utf-8 -*-<cr># Last modified: New<cr>"""This is the example module.<cr><cr>This module does stuff.<cr>"""<cr><cr>__all__ = ['a', 'b', 'c']<cr>__version__ = '0.1'<cr>__author__ = 'lsieun'<cr><cr><esc>:update<cr>
