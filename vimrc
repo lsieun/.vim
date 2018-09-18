@@ -17,7 +17,9 @@ Plugin 'scrooloose/nerdtree'
 Plugin 'duggiefresh/vim-easydir'
 
 " ==== Status Line
-Plugin 'powerline/powerline', {'rtp': 'powerline/bindings/vim/'}
+" Plugin 'powerline/powerline', {'rtp': 'powerline/bindings/vim/'}
+Plugin 'vim-airline/vim-airline'
+Plugin 'vim-airline/vim-airline-themes'
 
 " ==== Searching
 Plugin 'kien/ctrlp.vim'
@@ -32,7 +34,7 @@ Plugin 'vim-scripts/indentpython.vim'
 Plugin 'Valloric/YouCompleteMe'
 
 " ==== Eclim
-" Plugin 'file:///home/liusen/.vim/bundle/eclim/eclim'
+Plugin 'file:///home/liusen/.vim/bundle/eclim/eclim'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -64,11 +66,22 @@ map <C-t> :NERDTreeToggle<CR>
 map <F2> :NERDTreeToggle<cr>
 
 " ==== Powerline
+" set laststatus=2
+" set showtabline=2
+" set noshowmode
+" set t_Co=256
+" let g:Powerline_symbols = 'fancy'
+
+" ==== Airline
 set laststatus=2
-set showtabline=2
-set noshowmode
 set t_Co=256
-let g:Powerline_symbols = 'fancy'
+set ttimeoutlen=50
+let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#left_sep = ' '
+let g:airline#extensions#tabline#left_alt_sep = '|'
+let g:airline#extensions#tabline#formatter = 'unique_tail_improved'
+" let g:airline_section_b = '%{strftime("%Y-%m-%d %T")}'
+let g:airline_theme='powerlineish'
 
 " ==== CtrlP
 " Search from current directory instead of project root
@@ -84,15 +97,15 @@ map <leader>g  :YcmCompleter GoToDefinitionElseDeclaration<CR>
 
 " ==== Eclim
 let g:EclimCompletionMethod = 'omnifunc'
-
+let g:EclimMakeLCD = 1
 
 
 " ==== Auto Toggle Number
-" augroup numbertoggle
-"   autocmd!
-"   autocmd BufEnter,FocusGained,InsertLeave * set relativenumber
-"   autocmd BufLeave,FocusLost,InsertEnter   * set norelativenumber
-" augroup END
+augroup numbertoggle
+  autocmd!
+  autocmd BufEnter,FocusGained,InsertLeave * set relativenumber
+  autocmd BufLeave,FocusLost,InsertEnter   * set norelativenumber
+augroup END
 
 " ==== Manual Toggle Number
 " use Ctrl+N to toggle the line number counting method
@@ -101,8 +114,8 @@ function! g:ToggleNuMode()
      set number
      set norelativenumber
   else
+     set number
      set relativenumber
-     set nonumber
   endif
 endfunction
 nnoremap <silent><C-N> :call g:ToggleNuMode()<cr>
