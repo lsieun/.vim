@@ -2,6 +2,7 @@ set nocompatible              " required
 filetype off                  " required
 
 " set the runtime path to include Vundle and initialize
+set rtp+=~/.vim/bundle/eclim
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
@@ -22,34 +23,37 @@ Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 
 " ==== Searching
-Plugin 'kien/ctrlp.vim'
+Plugin 'ctrlpvim/ctrlp.vim'
 
 " ==== Git
+Plugin 'tpope/vim-fugitive'
 
 " ==== Folding & Indent - Python
 Plugin 'tmhedberg/SimpylFold'
 Plugin 'vim-scripts/indentpython.vim'
+Plugin 'vim-syntastic/syntastic'
+Plugin 'nvie/vim-flake8'
 
-" ==== Completion
+" ==== Completion - Python & Java
 Plugin 'Valloric/YouCompleteMe'
 
-" ==== Eclim
-Plugin 'file:///home/liusen/.vim/bundle/eclim/eclim'
+" ==== HTML
+Plugin 'mattn/emmet-vim'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
 
 " ==== Colors and other basic settings
+syntax enable
 colorscheme ron
 set number
 " set relativenumber
 " set list
 set showcmd
-syntax enable
 set clipboard=unnamedplus
 let mapleader = "\<Space>"
-"
+
 " Real programmers don't use TABs but spaces
 set tabstop=4
 set softtabstop=4
@@ -79,21 +83,27 @@ set ttimeoutlen=50
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#left_sep = ' '
 let g:airline#extensions#tabline#left_alt_sep = '|'
-let g:airline#extensions#tabline#formatter = 'unique_tail_improved'
+let g:airline#extensions#tabline#formatter = 'unique_tail'
 " let g:airline_section_b = '%{strftime("%Y-%m-%d %T")}'
 let g:airline_theme='powerlineish'
 
 " ==== CtrlP
 " Search from current directory instead of project root
 let g:ctrlp_working_path_mode = 0
+let g:ctrlp_custom_ignore = {
+  \ 'dir':  '\v[\/](\.git|target)$',
+  \ 'file': '\v\.(exe|so|dll|class|jar)$',
+  \ 'link': 'some_bad_symbolic_links',
+  \ }
 
-" ==== SimpleFold
+" ==== SimpleFold - Python
 let g:SimpylFold_docstring_preview=1
+let python_highlight_all=1
+syntax on
 
 " ==== YouCompleteMe
 let g:ycm_autoclose_preview_window_after_completion=1
 map <leader>g  :YcmCompleter GoToDefinitionElseDeclaration<CR>
-
 
 " ==== Eclim
 let g:EclimCompletionMethod = 'omnifunc'
@@ -205,3 +215,4 @@ endfun
 
 " ==== Python Run
 nnoremap <F5> <Esc>:update<CR>:!clear;echo "$ python %";printf "\n";python %<CR>
+
