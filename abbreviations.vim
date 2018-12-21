@@ -5,7 +5,8 @@ iabbrev python_header #!/usr/bin/env python3<cr># -*- coding: utf-8 -*-<cr># Las
 iabbrev my_info __version__ = '0.1'<cr>__author__ = 'lsieun'
 iabbrev for_list [expr for item in list#!/usr/bin/env python3
 
-" === Java
+
+" ==== Java
 iabbrev sysout System.out.println();<esc><left>
 iabbrev syserr System.err.println();<esc><left>
 iabbrev psvm public static void main(String[] args) {}<left><cr>// Good Luck!!! ^_^<esc>0w

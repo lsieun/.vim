@@ -37,6 +37,11 @@ Plugin 'nvie/vim-flake8'
 " ==== Completion - Python & Java
 Plugin 'Valloric/YouCompleteMe'
 
+
+" ==== Folding - Java
+Plugin 'pseewald/vim-anyfold'
+
+
 " ==== HTML
 Plugin 'mattn/emmet-vim'
 
@@ -84,7 +89,7 @@ let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#left_sep = ' '
 let g:airline#extensions#tabline#left_alt_sep = '|'
 let g:airline#extensions#tabline#formatter = 'unique_tail'
-" let g:airline_section_b = '%{strftime("%Y-%m-%d %T")}'
+let g:airline_section_b = '%{strftime("%Y-%m-%d %T")}'
 let g:airline_theme='powerlineish'
 
 " ==== CtrlP
@@ -108,7 +113,6 @@ map <leader>g  :YcmCompleter GoToDefinitionElseDeclaration<CR>
 " ==== Eclim
 let g:EclimCompletionMethod = 'omnifunc'
 let g:EclimMakeLCD = 1
-
 
 " ==== Auto Toggle Number
 augroup numbertoggle
@@ -216,3 +220,10 @@ endfun
 " ==== Python Run
 nnoremap <F5> <Esc>:update<CR>:!clear;echo "$ python %";printf "\n";python %<CR>
 
+" ==== Vim
+nnoremap <S-X> :bdelete<CR>
+nnoremap <S-Q> :quit<CR>
+inoremap %name <C-R>=expand("%:t:r")<CR>
+inoremap %file <C-R>=expand("%:t")<CR>
+inoremap %path <C-R>=expand("%:p")<CR>
+inoremap %dir <C-R>=expand("%:p:h")<CR>
