@@ -2,7 +2,6 @@ set nocompatible              " required
 filetype off                  " required
 
 " set the runtime path to include Vundle and initialize
-set rtp+=~/.vim/bundle/eclim
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
@@ -18,7 +17,6 @@ Plugin 'scrooloose/nerdtree'
 Plugin 'duggiefresh/vim-easydir'
 
 " ==== Status Line
-" Plugin 'powerline/powerline', {'rtp': 'powerline/bindings/vim/'}
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 
@@ -110,10 +108,6 @@ syntax on
 let g:ycm_autoclose_preview_window_after_completion=1
 map <leader>g  :YcmCompleter GoToDefinitionElseDeclaration<CR>
 
-" ==== Eclim
-let g:EclimCompletionMethod = 'omnifunc'
-let g:EclimMakeLCD = 1
-
 " ==== Auto Toggle Number
 augroup numbertoggle
   autocmd!
@@ -134,7 +128,6 @@ function! g:ToggleNuMode()
 endfunction
 nnoremap <silent><C-N> :call g:ToggleNuMode()<cr>
 
-" ==== Search
 " Make search case insensitive
 set hlsearch
 set incsearch
